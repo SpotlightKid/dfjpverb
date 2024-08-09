@@ -55,7 +55,7 @@ protected:
     }
 
     const char* getLicense() const noexcept override {
-        return "https://spdx.org/licenses/GPL2+";
+        return "https://spdx.org/licenses/GPL-2.0-or-later";
     }
 
     uint32_t getVersion() const noexcept override {
@@ -68,7 +68,7 @@ protected:
     //
     // Get a proper plugin UID and fill it in here!
     int64_t getUniqueId() const noexcept override {
-        return d_cconst('a', 'b', 'c', 'd');
+        return d_cconst('d', 'f', 'j', 'v');
     }
 
     // -------------------------------------------------------------------
