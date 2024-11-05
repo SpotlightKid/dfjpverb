@@ -1,16 +1,24 @@
 # DF JPverb
 
 A lush algorithmic reverb designed to sound great with synthetic sound sources
+built with [DPF] and based on a [FAUST] standard library function.
+
 
 ## Formats
 
-All plugins in this collection come in the following plug-in formats:
+This plugin is available in the following plug-in formats by default:
 
-* LADSPA
-* LV2
-* VST2
+* CLAP (`de.chrisarndt.dfjpverb`)
+* LV2 (`https://chrisarndt.de/plugins/dfjpverb`)
+* VST3 (`dfjpverb.vst3`)
 
-The plugins depend on the host to provide a generic UI to control parameters.
+The following formats are not built by default, but can be enabled when
+compiling (see ["Compiling"](#compiling)):
+
+* LADSPA (`dfjpverb-ladspa.so`)
+* VST2 (`dfjpverb-vst.so`)
+
+The plugin depends on the host to provide a generic UI to control parameters.
 
 
 ## Compiling
@@ -22,6 +30,15 @@ sub-modules) and simply run `make` in the project's root directory:
     $ git clone --recursive https://github.com/SpotlightKid/dfjpverb.git
     $ cd dfjpverb
     $ make
+
+To enable building additional plugin formats, which are not enabled by default
+(LADSPA, VST2), pass `BUILD_LADSPA=true` resp. `BUILD_VST2=true` to make. For
+example:
+
+    make BUILD_VST2=true
+
+The same settings must be passed to `make install` to also install optional
+plugin formats.
 
 
 ## Installation
@@ -42,9 +59,11 @@ actually installing them.
 You can also set the installation directory for each plugin format with a
 dedicated makefile variable.
 
+* CLAP: `CLAP_DIR` (`<prefix>/lib/clap`)
 * LADSPA: `LADSPA_DIR` (`<prefix>/lib/ladspa`)
 * LV2: `LV2_DIR` (`<prefix>/lib/lv2`)
 * VST2: `VST_DIR` (`<prefix>/lib/vst`)
+* VST2: `VST_DIR` (`<prefix>/lib/vst3`)
 
 Example: `make DESTDIR=/tmp/build-root VST_DIR=/usr/lib/lxvst install`
 
@@ -54,9 +73,11 @@ To install the plugins only for your current user account, run
 Again, you can also set the installation directory for each plugin format with
 a dedicated makefile variable.
 
+* CLAP: `USER_CLAP_DIR` (`$HOME/.clap`)
 * LADSPA: `USER_LADSPA_DIR` (`$HOME/.ladspa`)
 * LV2: `USER_LV2_DIR` (`$HOME/.lv2`)
 * VST2: `USER_VST_DIR` (`$HOME/.vst`)
+* VST3: `USER_VST_DIR` (`$HOME/.vst3`)
 
 *Note: The given default values for all of the above listed environment
 variables differ depending on the target OS.*
@@ -76,8 +97,8 @@ variables differ depending on the target OS.*
 
 * The [faustpp] pre-processor and [FAUST] (optional)
 
-The [LV2], [LADSPA] and [VST2] (vestige) headers are included in the [DPF]
-framework, which is integrated as a Git sub-module. These need not be
+The [CLAP], [LV2], [LADSPA], [VST]2 (vestige) and VST3 headers are included in
+the [DPF] framework, which is integrated as a Git sub-module. These need not be
 installed separately to build the software in the respective plug-in formats.
 
 `faustpp` and FAUST are only needed to re-generate C++ source and headers files
@@ -86,23 +107,33 @@ if the FAUST DSP source files in the `faust` directory are changed.
 
 ## Author
 
-This software was created by *Christopher Arndt*.
+This software was put together by *Christopher Arndt*.
+
+
+## License
+
+This plugin is released under the *GNU General Public License*, either version
+2 of the License, or (at your option) any later version. Please see the
+[LICENSE.md](./LICENSE.md) file for details.
 
 
 ## Acknowledgements
 
 The DSP code is generated from the FAUST sources via the [faustpp]
-pre-processor.
+pre-processor and uses the [re.jpverb] function from the FAUST standard
+library.
 
 The project is built using the DISTRHO Plugin Framework ([DPF]) and set up
 with the [cookiecutter-dpf-faust] project template.
 
 
+[CLAP]: https://cleveraudio.org/
 [cookiecutter-dpf-faust]: https://github.com/SpotlightKid/cookiecutter-dpf-faust
 [DPF]: https://github.com/DISTRHO/DPF
 [FAUST]: https://faust.grame.fr/
 [faustpp]: https://github.com/jpcima/faustpp.git
 [LADSPA]: http://www.ladspa.org/
-[LV2]: http://lv2plug.in/
+[LV2]: https://lv2plug.in/
 [pkgconf]: https://github.com/pkgconf/pkgconf
-[VST2]: https://en.wikipedia.org/wiki/Virtual_Studio_Technology
+[re.jpverb]: https://faustlibraries.grame.fr/libs/reverbs/#rejpverb
+[VST]: https://en.wikipedia.org/wiki/Virtual_Studio_Technology

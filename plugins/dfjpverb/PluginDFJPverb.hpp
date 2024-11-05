@@ -1,9 +1,9 @@
 /*
  * DF JPverb audio effect based on DISTRHO Plugin Framework (DPF)
  *
- * SPDX-License-Identifier: GPL2+
+ * SPDX-License-Identifier: GPL-2.0-or-later
  *
- * Copyright (C) 2022 Christopher Arndt <info@chrisarndt.de>
+ * Copyright (C) 2022-2024 Christopher Arndt <info@chrisarndt.de>
  */
 
 #ifndef PLUGIN_DFJPVERB_H

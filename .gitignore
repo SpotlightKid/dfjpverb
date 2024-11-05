@@ -12,10 +12,22 @@
 .kdev4/
 .DS_Store
 
+bin-w32/dfjpverb-vst.*
+bin-w32/dfjpverb.clap
+bin-w32/dfjpverb.exe
+bin-w32/dfjpverb.lv2
+bin-w32/dfjpverb.vst3
+bin-w64/dfjpverb-vst.*
+bin-w64/dfjpverb.clap
+bin-w64/dfjpverb.exe
+bin-w64/dfjpverb.lv2
+bin-w64/dfjpverb.vst3
 bin/dfjpverb
-bin/dfjpverb.exe
-bin/dfjpverb-ladspa.*
 bin/dfjpverb-dssi.*
+bin/dfjpverb-ladspa.*
 bin/dfjpverb-vst.*
+bin/dfjpverb.clap
 bin/dfjpverb.lv2/
+bin/dfjpverb.vst3
 build/
+dist/
