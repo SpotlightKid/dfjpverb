@@ -111,14 +111,29 @@ struct Preset {
 };
 
 const Preset factoryPresets[] = {
+    //{
+    //    "Preset name", // preset name
+    //    {1.0f, ...}   // array of DFJPverb::NumParameters float param values
+    //},
     {
-        "Default",
-        {-6.0f,}
-    }
-    //,{
-    //    "Another preset",  // preset name
-    //    {-14.0f, ...}      // array of DFJPverb::NumParameters float param values
-    //}
+        "Lush Pad (Insert)",
+        {
+            7.9f,       // p_t60
+            3.0f,       // p_size
+            0.4f,       // p_damp
+            0.12f,      // p_early_diff
+            394.0f,     // p_low_cutoff
+            2166.0f,    // p_high_cutoff
+            1.0f,       // p_low
+            0.9f,       // p_mid
+            0.7f,       // p_high
+            0.1f,       // p_mod_depth
+            2.0f,       // p_mod_freq
+            0.0f,       // p_dry
+            -12.0f      // p_wet
+        }
+    },
+    {"Lush Pad (Send)", {7.9f, 3.0f, 0.4f, 0.12f, 394.0f, 2166.0f, 1.0f, 0.9f, 0.7f, 0.1f, 2.0f, -90.0f, 0.0f}}
 };
 
 const uint presetCount = sizeof(factoryPresets) / sizeof(Preset);

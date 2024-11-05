@@ -33,8 +33,8 @@ with {
 out_mixer(fx, in_l, in_r) = fx(in_l, in_r) : *(wet_amount), *(wet_amount) :  +(in_l * dry_amount), +(in_r * dry_amount)
 with {
     out_group(x) = hgroup("[4] Output", x);
-    dry_amount = out_group(hslider("[1] Dry Gain [abbrev:Dry] [symbol:dry] [unit:dB] [style:knob]", 0, -60, 10, 0.1) : ba.db2linear);
-    wet_amount = out_group(hslider("[2] Wet Gain [abbrev:Wet] [symbol:wet] [unit:dB] [style:knob]", -12, -60, 10, 0.1) : ba.db2linear);
+    dry_amount = out_group(hslider("[1] Dry Gain [abbrev:Dry] [symbol:dry] [unit:dB] [style:knob]", 0, -90, 10, 0.1) : ba.db2linear);
+    wet_amount = out_group(hslider("[2] Wet Gain [abbrev:Wet] [symbol:wet] [unit:dB] [style:knob]", -12, -90, 10, 0.1) : ba.db2linear);
 };
 
 process = out_mixer(jpverb_ui);
