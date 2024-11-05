@@ -1,8 +1,9 @@
 # DF JPverb
 
-A lush algorithmic reverb designed to sound great with synthetic sound sources
-built with [DPF] and based on a [FAUST] standard library function.
+A lush algorithmic reverb designed to sound great with synthetic sound
+sources, built with [DPF] and based on a [FAUST] standard library function.
 
+<p align="center"><img title="Generic LV2 UI in Ardour 8" src="screenshot-ardour8.png" width="497"></center>
 
 ## Formats
 
@@ -63,7 +64,7 @@ dedicated makefile variable.
 * LADSPA: `LADSPA_DIR` (`<prefix>/lib/ladspa`)
 * LV2: `LV2_DIR` (`<prefix>/lib/lv2`)
 * VST2: `VST_DIR` (`<prefix>/lib/vst`)
-* VST2: `VST_DIR` (`<prefix>/lib/vst3`)
+* VST3: `VST3_DIR` (`<prefix>/lib/vst3`)
 
 Example: `make DESTDIR=/tmp/build-root VST_DIR=/usr/lib/lxvst install`
 
@@ -77,7 +78,7 @@ a dedicated makefile variable.
 * LADSPA: `USER_LADSPA_DIR` (`$HOME/.ladspa`)
 * LV2: `USER_LV2_DIR` (`$HOME/.lv2`)
 * VST2: `USER_VST_DIR` (`$HOME/.vst`)
-* VST3: `USER_VST_DIR` (`$HOME/.vst3`)
+* VST3: `USER_VST3_DIR` (`$HOME/.vst3`)
 
 *Note: The given default values for all of the above listed environment
 variables differ depending on the target OS.*
