@@ -86,8 +86,6 @@ DPF_PATCHES = \
 	dpf/fix-lv2-version-export.patch \
 	dpf/no-port-name-lv2-prefix.patch
 
-PLUGIN_BASE_URI = https://chrisarndt.de/plugins/
-
 submodules:
 	-test -d .git && git submodule update --init --recursive
 
@@ -127,8 +125,9 @@ lv2lint: gen
 	@echo "Please make sure you have the https://github.com/KXStudio/LV2-Extensions bundles"
 	@echo "installed somewhere on your LV2_PATH."
 	@for plug in $(PLUGINS); do \
+		plugin_uri="$$(grep DISTRHO_PLUGIN_URI plugins/$$plug/DistrhoPluginInfo.h | cut -d '"' -f 2)"; \
 		lv2lint -Mpack -q -s lv2_generate_ttl -t "Plugin Author Email" \
-			-I bin/$${plug,,}.lv2/ "$(PLUGIN_BASE_URI)$${plug,,}"; \
+			-I bin/$${plug,,}.lv2/ "$$plugin_uri"; \
 	done
 
 # --------------------------------------------------------------
