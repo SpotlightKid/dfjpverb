@@ -1,7 +1,8 @@
 # DF JPverb
 
 A lush algorithmic reverb designed to sound great with synthetic sound
-sources, built with [DPF] and based on a [FAUST] standard library function.
+sources, built with [DPF] and based on [re.jpverb] from the  [FAUST]
+standard library.
 
 <p align="center"><img title="Generic LV2 UI in Ardour 8" src="screenshot-ardour8.png" width="497"></center>
 
@@ -9,15 +10,15 @@ sources, built with [DPF] and based on a [FAUST] standard library function.
 
 This plugin is available in the following plug-in formats by default:
 
-* CLAP (`de.chrisarndt.dfjpverb`)
-* LV2 (`https://chrisarndt.de/plugins/dfjpverb`)
-* VST3 (`dfjpverb.vst3`)
+* [CLAP] (`de.chrisarndt.dfjpverb`)
+* [LV2] (`https://chrisarndt.de/plugins/dfjpverb`)
+* [VST3][vst] (`dfjpverb.vst3`)
 
 The following formats are not built by default, but can be enabled when
 compiling (see ["Compiling"](#compiling)):
 
-* LADSPA (`dfjpverb-ladspa.so`)
-* VST2 (`dfjpverb-vst.so`)
+* [LADSPA] (`dfjpverb-ladspa.so`)
+* [VST2][vst] (`dfjpverb-vst.so`)
 
 The plugin depends on the host to provide a generic UI to control parameters.
 
@@ -80,7 +81,7 @@ a dedicated makefile variable.
 * VST2: `USER_VST_DIR` (`$HOME/.vst`)
 * VST3: `USER_VST3_DIR` (`$HOME/.vst3`)
 
-*Note: The given default values for all of the above listed environment
+*Note: The given default values for all of the above listed makefile
 variables differ depending on the target OS.*
 
 
@@ -90,7 +91,7 @@ variables differ depending on the target OS.*
   (`make`, etc.).
 
   Debian / Ubuntu users should install the `build-essential` package
-  to get these, Arch users the `base-devel` package group.
+  to get these, Arch users the `base-devel` meta package.
 
 * `patch`
 
@@ -98,11 +99,12 @@ variables differ depending on the target OS.*
 
 * The [faustpp] pre-processor and [FAUST] (optional)
 
-The [CLAP], [LV2], [LADSPA], [VST]2 (vestige) and VST3 headers are included in
-the [DPF] framework, which is integrated as a Git sub-module. These need not be
-installed separately to build the software in the respective plug-in formats.
+The [CLAP], [LV2], [LADSPA], [VST2][vst] (Xaymar VST2SDK) and [VST3][vst]
+headers are included in the [DPF] framework, which is integrated as a Git
+sub-module. These need not be installed separately to build the software in
+the respective plug-in formats.
 
-`faustpp` and FAUST are only needed to re-generate C++ source and headers files
+`faustpp` and FAUST are only needed to re-generate C++ source and header files
 if the FAUST DSP source files in the `faust` directory are changed.
 
 
@@ -128,13 +130,13 @@ The project is built using the DISTRHO Plugin Framework ([DPF]) and set up
 with the [cookiecutter-dpf-faust] project template.
 
 
-[CLAP]: https://cleveraudio.org/
+[clap]: https://cleveraudio.org/
 [cookiecutter-dpf-faust]: https://github.com/SpotlightKid/cookiecutter-dpf-faust
-[DPF]: https://github.com/DISTRHO/DPF
-[FAUST]: https://faust.grame.fr/
+[dpf]: https://github.com/DISTRHO/DPF
+[faust]: https://faust.grame.fr/
 [faustpp]: https://github.com/jpcima/faustpp.git
-[LADSPA]: http://www.ladspa.org/
-[LV2]: https://lv2plug.in/
+[ladspa]: https://www.ladspa.org/
+[lv2]: https://lv2plug.in/
 [pkgconf]: https://github.com/pkgconf/pkgconf
 [re.jpverb]: https://faustlibraries.grame.fr/libs/reverbs/#rejpverb
-[VST]: https://en.wikipedia.org/wiki/Virtual_Studio_Technology
+[vst]: https://en.wikipedia.org/wiki/Virtual_Studio_Technology
