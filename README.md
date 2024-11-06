@@ -64,10 +64,10 @@ dedicated makefile variable.
 * CLAP: `CLAP_DIR` (`<prefix>/lib/clap`)
 * LADSPA: `LADSPA_DIR` (`<prefix>/lib/ladspa`)
 * LV2: `LV2_DIR` (`<prefix>/lib/lv2`)
-* VST2: `VST_DIR` (`<prefix>/lib/vst`)
+* VST2: `VST2_DIR` (`<prefix>/lib/vst`)
 * VST3: `VST3_DIR` (`<prefix>/lib/vst3`)
 
-Example: `make DESTDIR=/tmp/build-root VST_DIR=/usr/lib/lxvst install`
+Example: `make DESTDIR=/tmp/build-root BUILD_VST2=true VST2_DIR=/usr/lib/lxvst install`
 
 To install the plugins only for your current user account, run
 `make install-user`.
@@ -78,7 +78,7 @@ a dedicated makefile variable.
 * CLAP: `USER_CLAP_DIR` (`$HOME/.clap`)
 * LADSPA: `USER_LADSPA_DIR` (`$HOME/.ladspa`)
 * LV2: `USER_LV2_DIR` (`$HOME/.lv2`)
-* VST2: `USER_VST_DIR` (`$HOME/.vst`)
+* VST2: `USER_VST2_DIR` (`$HOME/.vst`)
 * VST3: `USER_VST3_DIR` (`$HOME/.vst3`)
 
 *Note: The given default values for all of the above listed makefile
