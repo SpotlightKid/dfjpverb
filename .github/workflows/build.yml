@@ -33,7 +33,7 @@ jobs:
         target:
           - macos-intel
           - macos-universal
-    runs-on: macos-11
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
         with:
