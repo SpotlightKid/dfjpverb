@@ -1,8 +1,8 @@
 diff --git a/distrho/src/DistrhoPluginLV2export.cpp b/distrho/src/DistrhoPluginLV2export.cpp
-index a42a50f9..2aa1e49b 100644
+index ba3cb196..78abb678 100644
 --- a/distrho/src/DistrhoPluginLV2export.cpp
 +++ b/distrho/src/DistrhoPluginLV2export.cpp
-@@ -1126,16 +1126,11 @@ void lv2_generate_ttl(const char* const basename)
+@@ -1178,16 +1178,11 @@ void lv2_generate_ttl(const char* const basename)
          {
              const uint32_t version(plugin.getVersion());
  
