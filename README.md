@@ -1,10 +1,11 @@
 # DF JPverb
 
 A lush algorithmic reverb designed to sound great with synthetic sound
-sources, built with [DPF] and based on [re.jpverb] from the  [FAUST]
+sources, built with [DPF] and based on [re.jpverb] from the [FAUST]
 standard library.
 
-<p align="center"><img title="Generic LV2 UI in Ardour 8" src="screenshot-ardour8.png" width="497"></center>
+<p align="center"><img title="Generic LV2 UI in Ardour 8"
+  src="screenshot-ardour8.png" width="497"></center>
 
 ## Formats
 
@@ -97,7 +98,7 @@ variables differ depending on the target OS.*
 
 * [pkgconf]
 
-* The [faustpp] pre-processor and [FAUST] (optional)
+* The [faustpp] post-processor and [FAUST] (optional)
 
 The [CLAP], [LV2], [LADSPA], [VST2][vst] (Xaymar VST2SDK) and [VST3][vst]
 headers are included in the [DPF] framework, which is integrated as a Git
@@ -123,7 +124,7 @@ This plugin is released under the *GNU General Public License*, either version
 ## Acknowledgements
 
 The DSP code is generated from the FAUST sources via the [faustpp]
-pre-processor and uses the [re.jpverb] function from the FAUST standard
+post-processor and uses the [re.jpverb] function from the FAUST standard
 library.
 
 The project is built using the DISTRHO Plugin Framework ([DPF]) and set up
@@ -134,7 +135,7 @@ with the [cookiecutter-dpf-faust] project template.
 [cookiecutter-dpf-faust]: https://github.com/SpotlightKid/cookiecutter-dpf-faust
 [dpf]: https://github.com/DISTRHO/DPF
 [faust]: https://faust.grame.fr/
-[faustpp]: https://github.com/jpcima/faustpp.git
+[faustpp]: https://github.com/jpcima/faustpp
 [ladspa]: https://www.ladspa.org/
 [lv2]: https://lv2plug.in/
 [pkgconf]: https://github.com/pkgconf/pkgconf
