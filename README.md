@@ -128,7 +128,7 @@ post-processor and uses the [re.jpverb] function from the FAUST standard
 library.
 
 The project is built using the DISTRHO Plugin Framework ([DPF]) and set up
-with the [cookiecutter-dpf-faust] project template.
+with the [dpf-faust-project-template] project template.
 
 
 [clap]: https://cleveraudio.org/
