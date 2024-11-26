@@ -76,6 +76,7 @@ protected:
 
     void initParameter(uint32_t index, Parameter& parameter) override;
     void initProgramName(uint32_t index, String& programName) override;
+    void initPortGroup(uint32_t groupId, PortGroup& portGroup) override;
 
     // -------------------------------------------------------------------
     // Internal data

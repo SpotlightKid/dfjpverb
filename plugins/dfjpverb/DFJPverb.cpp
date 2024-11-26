@@ -9,7 +9,7 @@
 // License: GPL-2.0-or-later
 // Version: 0.1.0
 // FAUST version: 2.76.0
-// FAUST compilation options: -a /home/chris/tmp/tmp8mspl7c9.cpp -lang cpp -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 0
+// FAUST compilation options: -a /home/chris/tmp/tmpuooccn56.cpp -lang cpp -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 0
 //------------------------------------------------------------------------------
 
 
@@ -380,7 +380,7 @@ class mydsp : public dsp {
         m->declare("basics.lib/name", "Faust Basic Element Library");
         m->declare("basics.lib/tabulateNd", "Copyright (C) 2023 Bart Brouns <bart@magnetophon.nl>");
         m->declare("basics.lib/version", "1.19.1");
-        m->declare("compile_options", "-a /home/chris/tmp/tmp8mspl7c9.cpp -lang cpp -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 0");
+        m->declare("compile_options", "-a /home/chris/tmp/tmpuooccn56.cpp -lang cpp -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 0");
         m->declare("copyright", "Julian Parker, bug fixes and minor interface changes by Till Bovermann, DPF version by Christopher Arndt");
         m->declare("delays.lib/fdelay1a:author", "Julius O. Smith III");
         m->declare("delays.lib/fdelay4:author", "Julius O. Smith III");
@@ -1086,22 +1086,26 @@ class mydsp : public dsp {
         ui_interface->declare(0, "0", "");
         ui_interface->openVerticalBox("JP Verb");
         ui_interface->declare(0, "0", "");
-        ui_interface->openHorizontalBox("Mix");
+        ui_interface->openHorizontalBox("Reverb");
         ui_interface->declare(&fHslider10, "1", "");
         ui_interface->declare(&fHslider10, "style", "knob");
         ui_interface->declare(&fHslider10, "symbol", "t60");
+        ui_interface->declare(&fHslider10, "tooltip", "Time in seconds for the reverb to decay by 60db when damp == 0. Does not effect early reflections (0.1..60 s).");
         ui_interface->addHorizontalSlider("Time (T60)", &fHslider10, FAUSTFLOAT(1.0f), FAUSTFLOAT(0.1f), FAUSTFLOAT(6e+01f), FAUSTFLOAT(0.1f));
         ui_interface->declare(&fHslider4, "2", "");
         ui_interface->declare(&fHslider4, "style", "knob");
         ui_interface->declare(&fHslider4, "symbol", "size");
+        ui_interface->declare(&fHslider4, "tooltip", "Scales size of delay-lines within the reverberator, producing the impression of a larger or smaller space. Values below 1 can sound metallic (0.5..5).");
         ui_interface->addHorizontalSlider("Size", &fHslider4, FAUSTFLOAT(1.0f), FAUSTFLOAT(0.5f), FAUSTFLOAT(5.0f), FAUSTFLOAT(0.01f));
         ui_interface->declare(&fHslider1, "3", "");
         ui_interface->declare(&fHslider1, "style", "knob");
         ui_interface->declare(&fHslider1, "symbol", "damp");
+        ui_interface->declare(&fHslider1, "tooltip", "Damping of high-frequencies as the reverb decays. 0 is no damping, 1 is very strong damping (0..1).");
         ui_interface->addHorizontalSlider("Hi-Freq Damping", &fHslider1, FAUSTFLOAT(0.0f), FAUSTFLOAT(0.0f), FAUSTFLOAT(0.999f), FAUSTFLOAT(0.0001f));
         ui_interface->declare(&fHslider11, "4", "");
         ui_interface->declare(&fHslider11, "style", "knob");
         ui_interface->declare(&fHslider11, "symbol", "early_diff");
+        ui_interface->declare(&fHslider11, "tooltip", "Shape of early reflections. Values of >= ~0.707 produce smooth exponential decay. Lower values produce a slower build-up of echoes (0..0.99).");
         ui_interface->addHorizontalSlider("Early Reflections Shape", &fHslider11, FAUSTFLOAT(0.70710677f), FAUSTFLOAT(0.0f), FAUSTFLOAT(0.99f), FAUSTFLOAT(0.001f));
         ui_interface->closeBox();
         ui_interface->declare(0, "1", "");
@@ -1110,25 +1114,30 @@ class mydsp : public dsp {
         ui_interface->declare(&fHslider2, "scale", "log");
         ui_interface->declare(&fHslider2, "style", "knob");
         ui_interface->declare(&fHslider2, "symbol", "low_cutoff");
+        ui_interface->declare(&fHslider2, "tooltip", "Frequency at which the crossover between the low and mid bands of the reverb occurs (100..6000 Hz)");
         ui_interface->declare(&fHslider2, "unit", "Hz");
         ui_interface->addHorizontalSlider("Low/Mid-Band Crossover Frequency", &fHslider2, FAUSTFLOAT(5e+02f), FAUSTFLOAT(1e+02f), FAUSTFLOAT(6e+03f), FAUSTFLOAT(0.1f));
         ui_interface->declare(&fHslider3, "2", "");
         ui_interface->declare(&fHslider3, "scale", "log");
         ui_interface->declare(&fHslider3, "style", "knob");
         ui_interface->declare(&fHslider3, "symbol", "high_cutoff");
+        ui_interface->declare(&fHslider3, "tooltip", "Frequency at which the crossover between the mid and high bands of the reverb occurs (1000..10000 Hz)");
         ui_interface->declare(&fHslider3, "unit", "Hz");
         ui_interface->addHorizontalSlider("Mid/High-Band Crossover Frequency", &fHslider3, FAUSTFLOAT(2e+03f), FAUSTFLOAT(1e+03f), FAUSTFLOAT(1e+04f), FAUSTFLOAT(0.1f));
         ui_interface->declare(&fHslider7, "3", "");
         ui_interface->declare(&fHslider7, "style", "knob");
         ui_interface->declare(&fHslider7, "symbol", "low");
+        ui_interface->declare(&fHslider7, "tooltip", "Multiplier for the reverberation time within the low band (0..1)");
         ui_interface->addHorizontalSlider("Low-Band Multiplier", &fHslider7, FAUSTFLOAT(1.0f), FAUSTFLOAT(0.0f), FAUSTFLOAT(1.0f), FAUSTFLOAT(0.01f));
         ui_interface->declare(&fHslider8, "4", "");
         ui_interface->declare(&fHslider8, "style", "knob");
         ui_interface->declare(&fHslider8, "symbol", "mid");
+        ui_interface->declare(&fHslider8, "tooltip", "Multiplier for the reverberation time within the mid band (0..1)");
         ui_interface->addHorizontalSlider("Mid-Band Multiplier", &fHslider8, FAUSTFLOAT(1.0f), FAUSTFLOAT(0.0f), FAUSTFLOAT(1.0f), FAUSTFLOAT(0.01f));
         ui_interface->declare(&fHslider9, "5", "");
         ui_interface->declare(&fHslider9, "style", "knob");
         ui_interface->declare(&fHslider9, "symbol", "high");
+        ui_interface->declare(&fHslider9, "tooltip", "Multiplier for the reverberation time within the high band (0..1)");
         ui_interface->addHorizontalSlider("High-Band Multiplier", &fHslider9, FAUSTFLOAT(1.0f), FAUSTFLOAT(0.0f), FAUSTFLOAT(1.0f), FAUSTFLOAT(0.01f));
         ui_interface->closeBox();
         ui_interface->declare(0, "2", "");
@@ -1136,10 +1145,12 @@ class mydsp : public dsp {
         ui_interface->declare(&fHslider6, "1", "");
         ui_interface->declare(&fHslider6, "style", "knob");
         ui_interface->declare(&fHslider6, "symbol", "mod_depth");
+        ui_interface->declare(&fHslider6, "tooltip", "Depth of delay-line modulation. Use in combination with Modulation Frequency to set amount of chorusing within the structure (0..1).");
         ui_interface->addHorizontalSlider("Modulation Depth", &fHslider6, FAUSTFLOAT(0.1f), FAUSTFLOAT(0.0f), FAUSTFLOAT(1.0f), FAUSTFLOAT(0.001f));
         ui_interface->declare(&fHslider5, "2", "");
         ui_interface->declare(&fHslider5, "style", "knob");
         ui_interface->declare(&fHslider5, "symbol", "mod_freq");
+        ui_interface->declare(&fHslider5, "tooltip", "Frequency of delay-line modulation (0..10 Hz)");
         ui_interface->declare(&fHslider5, "unit", "Hz");
         ui_interface->addHorizontalSlider("Modulation Frequency", &fHslider5, FAUSTFLOAT(2.0f), FAUSTFLOAT(0.0f), FAUSTFLOAT(1e+01f), FAUSTFLOAT(0.01f));
         ui_interface->closeBox();
@@ -1150,12 +1161,14 @@ class mydsp : public dsp {
         ui_interface->declare(&fHslider0, "abbrev", "Dry");
         ui_interface->declare(&fHslider0, "style", "knob");
         ui_interface->declare(&fHslider0, "symbol", "dry");
+        ui_interface->declare(&fHslider0, "tooltip", "Gain of dry (input) signal. Should be set to -90 when using the reverb as a send effect (-90..10 dB).");
         ui_interface->declare(&fHslider0, "unit", "dB");
         ui_interface->addHorizontalSlider("Dry Gain", &fHslider0, FAUSTFLOAT(0.0f), FAUSTFLOAT(-9e+01f), FAUSTFLOAT(1e+01f), FAUSTFLOAT(0.1f));
         ui_interface->declare(&fHslider12, "2", "");
         ui_interface->declare(&fHslider12, "abbrev", "Wet");
         ui_interface->declare(&fHslider12, "style", "knob");
         ui_interface->declare(&fHslider12, "symbol", "wet");
+        ui_interface->declare(&fHslider12, "tooltip", "Gain of wet (reverb) signal (-90..10 dB)");
         ui_interface->declare(&fHslider12, "unit", "dB");
         ui_interface->addHorizontalSlider("Wet Gain", &fHslider12, FAUSTFLOAT(-12.0f), FAUSTFLOAT(-9e+01f), FAUSTFLOAT(1e+01f), FAUSTFLOAT(0.1f));
         ui_interface->closeBox();
@@ -1961,7 +1974,7 @@ const char *DFJPverb::parameter_group_label(unsigned group_id) noexcept
 {
     switch (group_id) {
     case 0:
-        return "Mix";
+        return "Reverb";
     case 1:
         return "EQ";
     case 2:
@@ -1977,7 +1990,7 @@ const char *DFJPverb::parameter_group_symbol(unsigned group_id) noexcept
 {
     switch (group_id) {
     case 0:
-        return "Mix";
+        return "Reverb";
     case 1:
         return "EQ";
     case 2:
@@ -2095,6 +2108,32 @@ const char *DFJPverb::parameter_short_label(unsigned index) noexcept
 const char *DFJPverb::parameter_description(unsigned index) noexcept
 {
     switch (index) {
+    case 0:
+        return "Time in seconds for the reverb to decay by 60db when damp == 0. Does not effect early reflections (0.1..60 s).";
+    case 1:
+        return "Scales size of delay-lines within the reverberator, producing the impression of a larger or smaller space. Values below 1 can sound metallic (0.5..5).";
+    case 2:
+        return "Damping of high-frequencies as the reverb decays. 0 is no damping, 1 is very strong damping (0..1).";
+    case 3:
+        return "Shape of early reflections. Values of >= ~0.707 produce smooth exponential decay. Lower values produce a slower build-up of echoes (0..0.99).";
+    case 4:
+        return "Frequency at which the crossover between the low and mid bands of the reverb occurs (100..6000 Hz)";
+    case 5:
+        return "Frequency at which the crossover between the mid and high bands of the reverb occurs (1000..10000 Hz)";
+    case 6:
+        return "Multiplier for the reverberation time within the low band (0..1)";
+    case 7:
+        return "Multiplier for the reverberation time within the mid band (0..1)";
+    case 8:
+        return "Multiplier for the reverberation time within the high band (0..1)";
+    case 9:
+        return "Depth of delay-line modulation. Use in combination with Modulation Frequency to set amount of chorusing within the structure (0..1).";
+    case 10:
+        return "Frequency of delay-line modulation (0..10 Hz)";
+    case 11:
+        return "Gain of dry (input) signal. Should be set to -90 when using the reverb as a send effect (-90..10 dB).";
+    case 12:
+        return "Gain of wet (reverb) signal (-90..10 dB)";
     default:
         return 0;
     }
