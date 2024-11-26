@@ -30,10 +30,10 @@ is authored by Julian Parker with bug fixes and minor interface changes by
 Till Bovermann.
 
 
-## faustpp
+## faustdoctor
 
-faustpp is released under the Boost Software License 1.0. Copyright 2022 Jean
-Pierre Cimalando.
+faustdoctor is released under the Boost Software License 1.0. Copyright 2022
+Jean Pierre Cimalando, 2024 Christopher Arndt.
 
 
 ## For the CLAP format

@@ -90,10 +90,10 @@ all: $(TARGETS)
 $(BUILD_DIR)/$(FAUST_IDENTIFIER).cpp.o: $(FAUST_IDENTIFIER).hpp $(FAUST_IDENTIFIER).cpp
 
 $(FAUST_IDENTIFIER).cpp: $(FAUST_DSP_SOURCE)
-	faustpp -DIdentifier=$(FAUST_IDENTIFIER) -a $(FAUST_ARCH_DIR)/generic.cpp $< > $@
+	faustdr -DIdentifier=$(FAUST_IDENTIFIER) -a $(FAUST_ARCH_DIR)/generic.cpp $< > $@
 
 $(FAUST_IDENTIFIER).hpp: $(FAUST_DSP_SOURCE)
-	faustpp -DIdentifier=$(FAUST_IDENTIFIER) -a $(FAUST_ARCH_DIR)/generic.hpp $< > $@
+	faustdr -DIdentifier=$(FAUST_IDENTIFIER) -a $(FAUST_ARCH_DIR)/generic.hpp $< > $@
 
 # --------------------------------------------------------------
 # Installation

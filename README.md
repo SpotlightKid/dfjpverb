@@ -98,15 +98,15 @@ variables differ depending on the target OS.*
 
 * [pkgconf]
 
-* The [faustpp] post-processor and [FAUST] (optional)
+* The [faustdoctor] post-processor and [FAUST] (optional)
 
 The [CLAP], [LV2], [LADSPA], [VST2][vst] (Xaymar VST2SDK) and [VST3][vst]
 headers are included in the [DPF] framework, which is integrated as a Git
 sub-module. These need not be installed separately to build the software in
 the respective plug-in formats.
 
-`faustpp` and FAUST are only needed to re-generate C++ source and header files
-if the FAUST DSP source files in the `faust` directory are changed.
+`faustdoctor` and FAUST are only needed to re-generate C++ source and header
+files if the FAUST DSP source files in the `faust` directory are changed.
 
 
 ## Author
@@ -123,7 +123,7 @@ This plugin is released under the *GNU General Public License*, either version
 
 ## Acknowledgements
 
-The DSP code is generated from the FAUST sources via the [faustpp]
+The DSP code is generated from the FAUST sources via the [faustdoctor]
 post-processor and uses the [re.jpverb] function from the FAUST standard
 library.
 
@@ -132,10 +132,10 @@ with the [cookiecutter-dpf-faust] project template.
 
 
 [clap]: https://cleveraudio.org/
-[cookiecutter-dpf-faust]: https://github.com/SpotlightKid/cookiecutter-dpf-faust
+[dpf-faust-project-template]: https://github.com/SpotlightKid/dpf-faust-project-template
 [dpf]: https://github.com/DISTRHO/DPF
 [faust]: https://faust.grame.fr/
-[faustpp]: https://github.com/jpcima/faustpp
+[faustdoctor]: https://github.com/SpotlightKid/faustdoctor
 [ladspa]: https://www.ladspa.org/
 [lv2]: https://lv2plug.in/
 [pkgconf]: https://github.com/pkgconf/pkgconf
