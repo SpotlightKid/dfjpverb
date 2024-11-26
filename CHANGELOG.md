@@ -1,5 +1,13 @@
 # Changelog
 
+# 0.2.2 (2024-11-26)
+
+* Added parameter groups.
+* Added parameter descriptions (LV2).
+* Generated C++ source from FAUST code with `faustdoctor` instead of `faustpp`.
+* Updated screenshot.
+* Added more factory presets.
+
 
 # 0.2.0 (2024-11-23)
 
