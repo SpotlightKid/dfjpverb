@@ -114,27 +114,49 @@ struct Preset {
 const Preset factoryPresets[] = {
     //{
     //    "Preset name", // preset name
-    //    {1.0f, ...}   // array of DFJPverb::NumParameters float param values
+    //    {1.0, ...}     // array of DFJPverb::NumParameters float param values
     //},
-    {
-        "Lush Pad (Insert)",
-        {
-            7.9f,       // p_t60
-            3.0f,       // p_size
-            0.4f,       // p_damp
-            0.12f,      // p_early_diff
-            394.0f,     // p_low_cutoff
-            2166.0f,    // p_high_cutoff
-            1.0f,       // p_low
-            0.9f,       // p_mid
-            0.7f,       // p_high
-            0.1f,       // p_mod_depth
-            2.0f,       // p_mod_freq
-            0.0f,       // p_dry
-            -12.0f      // p_wet
-        }
-    },
-    {"Lush Pad (Send)", {7.9f, 3.0f, 0.4f, 0.12f, 394.0f, 2166.0f, 1.0f, 0.9f, 0.7f, 0.1f, 2.0f, -90.0f, 0.0f}}
+    {"Defaults", {
+        1.0,     // p_t60
+        1.0,     // p_size
+        0.0,     // p_damp
+        0.707,   // p_early_diff
+        500.0,   // p_low_cutoff
+        2000.0,  // p_high_cutoff
+        1.0,     // p_low
+        1.0,     // p_mid
+        1.0,     // p_high
+        0.1,     // p_mod_depth
+        2.0,     // p_mod_freq
+        0.0,     // p_dry
+        -12.0    // p_wet
+    }},
+    {"Lush Pad (Insert)", {
+        7.9, 3.0, 0.4, 0.12, 394.0, 2166.0, 1.0, 0.9, 0.7, 0.1, 2.0, 0.0, -12.0
+    }},
+    {"Lush Pad (Send)", {
+        7.9, 3.0, 0.4, 0.12, 394.0, 2166.0, 1.0, 0.9, 0.7, 0.1, 2.0, -90.0, 0.0
+    }},
+    {"Dreamverb", {
+        60.0, 2.79381, 0.31443, 0.42188, 2450.08225, 1024.02198, 0.84375,
+        0.70619, 0.0, 0.46392, 0.10309, 0.0, -3.6
+    }},
+    {"Factory Preset 1", {
+        16.0, 0.94922, 0.67188, 0.42188, 2450.08225, 4450.79406, 0.84375,
+        0.55469, 0.0, 0.17969, 2.0, 0.0, -3.6
+    }},
+    {"Factory Preset 2", {
+        60.0, 0.94922, 0.67188, 0.42188, 2450.08225, 4450.79406, 0.84375,
+        0.55469, 0.0, 0.17969, 2.0, 0.0, -3.6
+    }},
+    {"Factory Preset 3", {
+        4.03756, 0.61719, 0.28906, 0.76563, 681.56676, 7233.94163, 0.60938,
+        0.51563, 0.22656, 0.0, 2.0, 0.0, -8.4
+    }},
+    {"Factory Preset 4", {
+        1.64833, 0.5, 0.875, 0.70316, 100.0, 5829.41535, 0.84375, 0.55469,
+        0.0, 0.17969, 2.0, 0.0, -3.6
+    }},
 };
 
 const uint presetCount = sizeof(factoryPresets) / sizeof(Preset);
